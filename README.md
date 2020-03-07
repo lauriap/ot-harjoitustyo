@@ -17,3 +17,5 @@ This is a course excercise for learning the basics about the tools used in softw
 **This will be updated later.**
 
 *To be continued next week.*
+
+Testing synchronization issue with GitHub.
