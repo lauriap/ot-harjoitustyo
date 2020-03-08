@@ -52,12 +52,36 @@ public class MaksukorttiTest {
         assertEquals("Kortilla on rahaa 150.0 euroa", kortti.toString());
     }
     
-    /*
-    JATKA KOHDASTA 1!
     
-    https://github.com/mluukkai/ohjelmistotekniikka-kevat-2020/blob/master/tehtavat/viikko2.md
+    @Test
+    public void syoMaukkaastiEiVieSaldoaNegatiiviseksi() {
+        kortti.syoMaukkaasti();
+        kortti.syoMaukkaasti();
+        kortti.syoMaukkaasti();
+        assertEquals("Kortilla on rahaa 2.0 euroa", kortti.toString());
+    }
     
-    */
+    @Test
+    public void negatiivinenLatausEiMuutaSaldoa() {
+        kortti.lataaRahaa(-10);
+        assertEquals("Kortilla on rahaa 10.0 euroa", kortti.toString());
+    }
     
+    @Test
+    public void syoEdullisestiOnnistuuKunJaljellaOnTasaraha() {
+        kortti.syoEdullisesti();
+        kortti.syoEdullisesti();
+        kortti.syoEdullisesti();
+        kortti.syoEdullisesti();
+        assertEquals("Kortilla on rahaa 0.0 euroa", kortti.toString());
+    }
     
+    @Test
+    public void syoMaukkaastiOnnistuuKunJaljellaOnTasaraha() {
+        kortti.syoMaukkaasti();
+        kortti.syoMaukkaasti();
+        kortti.lataaRahaa(2);
+        kortti.syoMaukkaasti();
+        assertEquals("Kortilla on rahaa 0.0 euroa", kortti.toString());
+    }
 }
