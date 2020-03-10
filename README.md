@@ -8,6 +8,7 @@ This is a course excercise for learning the basics about the tools used in softw
 
 [Documentation](https://github.com/lauriap/ot-harjoitustyo/tree/master/project/documentation)
 
+[Work time tracker](https://github.com/lauriap/ot-harjoitustyo/tree/master/project/documentation/work_time_tracker.md)
 
 ## Week 1
 
