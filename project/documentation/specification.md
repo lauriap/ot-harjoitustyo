@@ -2,7 +2,7 @@
 
 ## Purpose and scope
 
-This program is a mental calculation game made for people interested in practicing the calculation of basic arithmetic operations in their heads. The program is a desktop program with a simple graphical user interface. The performance of the user is tracked and stored in a database. The user is able to check his/her performance against other players from a "high score" tab.
+This program is a mental calculation game made for people interested in practicing the calculation of basic arithmetic operations in their heads. The program is a desktop program with a simple graphical user interface. The performance of the users is tracked and stored in a file. The user is able to check his/her performance against other players from a "high score" tab.
 
 ## Users
 
@@ -14,7 +14,7 @@ The program allows the user to select a name in the beginning of the practice se
 ### Start screen
 
 
-### Difficulty settings
+### Player name and difficulty settings
 
 
 ### Game screen
@@ -33,8 +33,9 @@ The program allows the user to select a name in the beginning of the practice se
 	* Quit - exits the program
 
 
-**Difficulty settings**
+**Player name and difficulty settings**
 
+* The user gets to input a name. The previous name used to play is remembered 
 * When starting a new game, difficulty settings are chosen. There are two options to choose from:
 	* Arithmetic operations type (addition, subtraction, multiplication, division, all)
 	* Number of digits (1-5)
@@ -62,4 +63,5 @@ The program allows the user to select a name in the beginning of the practice se
 * Additional mathematical operations
 * A proper sign in mechanism for all players
 * Time constraints for answering
+* A database to enable more detailed analysis of performance (e.g. % of correct answers by arithmetic operation type etc.)
 
