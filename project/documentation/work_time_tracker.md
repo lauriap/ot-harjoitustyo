@@ -2,6 +2,7 @@
 
 |  Day   | Time (h) | Description |
 |  :----:|:---------| :-----------|
-| 09.03. | 1        | Reading course requirements and background material |
-| 09.03. | 1        | Writing the first version of the program specification |
-| TOTAL  | 2        | | 
+| 10.03. | 1        | Reading course requirements and background material |
+| 10.03. | 1        | Writing the first version of the program specification |
+| 11.03. | 1        | Drawing GUI documentation images |
+| TOTAL  | 3        | | 
