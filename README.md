@@ -6,9 +6,9 @@ This is a course excercise for learning the basics about the tools used in softw
 
 ## Mental calculation game - project links
 
-[Documentation](https://github.com/lauriap/ot-harjoitustyo/tree/master/project/documentation)
+[Documentation](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation)
 
-[Work time tracker](https://github.com/lauriap/ot-harjoitustyo/tree/master/project/documentation/work_time_tracker.md)
+[Work time tracker](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation/work_time_tracker.md)
 
 ## Week 1
 

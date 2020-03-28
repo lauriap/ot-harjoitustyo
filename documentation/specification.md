@@ -12,19 +12,19 @@ The program allows the user to select a name in the beginning of the practice se
 
 ### Start screen
 
-![Menu](https://github.com/lauriap/ot-harjoitustyo/blob/master/project/documentation/menu.PNG?raw=true.png)
+![Menu](https://github.com/lauriap/ot-harjoitustyo/blob/master/documentation/menu.PNG?raw=true.png)
 
 ### Player name and difficulty settings
 
-![New game](https://github.com/lauriap/ot-harjoitustyo/blob/master/project/documentation/new_game.PNG?raw=true)
+![New game](https://github.com/lauriap/ot-harjoitustyo/blob/master/documentation/new_game.PNG?raw=true)
 
 ### Game screen
 
-![Game sceen](https://github.com/lauriap/ot-harjoitustyo/blob/master/project/documentation/game_screen.PNG?raw=true)
+![Game sceen](https://github.com/lauriap/ot-harjoitustyo/blob/master/documentation/game_screen.PNG?raw=true)
 
 ### High score screen
 
-![High score](https://github.com/lauriap/ot-harjoitustyo/blob/master/project/documentation/high_score.PNG?raw=true)
+![High score](https://github.com/lauriap/ot-harjoitustyo/blob/master/documentation/high_score.PNG?raw=true)
 
 ## Functionalities
 
