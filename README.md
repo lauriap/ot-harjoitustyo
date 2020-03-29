@@ -4,6 +4,9 @@
 
 Mental Calculation Game is a simple game for practicing mental calculation with basic arithmetic operations. The game enables the player to choose between specific arithmetic problems or a mix of different types. Addition, subtraction, multiplication and division are supported. The game is a desktop program with a GUI. This is a course excercise for learning the basics about the tools used in software development, including version control etc.
 
+![Game example](https://github.com/lauriap/ot-harjoitustyo/blob/master/documentation/game_example.png?raw=true)
+
+
 ## How to run
 
 ### Running the program
