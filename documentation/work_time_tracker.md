@@ -7,4 +7,6 @@
 | 11.03. | 1        | Drawing GUI documentation images |
 | 27.03. | 1        | Setting up the project |
 | 28.03. | 8        | First version of GUI |
-| TOTAL  | 12       | | 
+| 29.03. | 6        | First version of game logic, more GUI, tests, documentation |
+| TOTAL  | 18       | | 
+

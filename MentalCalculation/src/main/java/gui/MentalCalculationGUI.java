@@ -1,6 +1,7 @@
 
 package gui;
 
+import calculationgenerator.CalculationGenerator;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -20,11 +21,12 @@ import javafx.stage.Stage;
 
 public class MentalCalculationGUI extends Application {
     
+    CalculationGenerator calculationGenerator;
 
     @Override
     public void start(Stage stage) throws Exception {
         
-        // create buttons and other elements
+        // CREATE BUTTONS AND OTHER ELEMENTS
         
         int minWidth = 200;
         int minHeight = 40;
@@ -75,7 +77,7 @@ public class MentalCalculationGUI extends Application {
         settingsMainMenuButton.setMinWidth(minWidth);
         settingsMainMenuButton.setMinHeight(minHeight);
         
-        // create windows for containing the buttons and adjust positions
+        // CREATE WINDOWS FOR BUTTONS ETC AND ADJUST POSITIONS
         
         
         // main menu screen
@@ -125,11 +127,11 @@ public class MentalCalculationGUI extends Application {
         // game screen
         
         // create labels and fields
-        Label calculationLabel = new Label("5 + 5 = ?");
+        Label calculationLabel = new Label("x + y = ?");
         TextField answerField = new TextField();
         Button answerButton = new Button("Answer");
         Label correctAnswersLabel = new Label(
-                "Correct answers this session: 3/12");
+                "Correct answers this session: 0/0");
         Button exitGameButton = new Button("Exit game");
         
         answerButton.setMinWidth(minWidth);
@@ -162,7 +164,7 @@ public class MentalCalculationGUI extends Application {
         Scene gameScreen = new Scene(gameScreenItems, 500, 350);
         
         
-        // set button actions
+        // BUTTON ACTIONS
         
         // main menu buttons 
         
@@ -186,27 +188,60 @@ public class MentalCalculationGUI extends Application {
         // game settings menu buttons
         
         // startButton
-        startButton.setOnAction(e -> stage.setScene(gameScreen));
+        
+        startButton.setOnAction(e -> {
+            // create new CalculationGenerator Object
+            String playerName = nameField.getText();
+            String operationType = (String)digitComboBox.getValue();
+            int digits = Integer.parseInt((String)digitComboBox.getValue());
+            calculationGenerator = new CalculationGenerator(playerName,
+            operationType, digits);
+            
+            // set new calculation values to the problem
+            calculationLabel.setText(calculationGenerator.getCalculation());
+            
+            // set answers to "0/0"
+            correctAnswersLabel.setText("Correct answers this session: 0/0");
+            
+            //make screen visible
+            stage.setScene(gameScreen);
+                });
         
         // settingsMainMenuButton
         settingsMainMenuButton.setOnAction(e -> stage.setScene(menuScene));
+        
         
         // game screen buttons
         
         // answerButton
         
-        // TO BE ADDED LATER
+        answerButton.setOnAction(e -> {
+            // check if answer is correct
+            calculationGenerator.checkAnswer(answerField.getText());
+            
+            // update the number of correct answers
+            correctAnswersLabel.setText(
+                    calculationGenerator.updateCorrectAnswers());
+            
+            // set new calculation values to the problem
+            calculationLabel.setText(calculationGenerator.getCalculation());
+            
+            // clear the answerField and set it as active
+            answerField.setText("");
+            answerField.requestFocus();
+            
+            // TARKISTA PITÄÄKÖ PÄIVITTÄÄ JOKA KERTA!
+            //make screen visible
+            stage.setScene(gameScreen);
+        });
         
         // exitGameButton
         // DATABASE ENTRY TASK TO BE ADDED
         exitGameButton.setOnAction(e -> stage.setScene(menuScene));
         
         // show main menu scene
-
+        
         stage.show();
-        
-
-        
     }
     
     public static void main(String[] args) {
