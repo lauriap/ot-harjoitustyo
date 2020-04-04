@@ -1,4 +1,3 @@
-
 package calculationgenerator;
 
 import java.util.Random;
@@ -19,7 +18,7 @@ public class CalculationGenerator {
         this.playerName = name;
         this.operationType = operationType;
         this.numDigits = digits;
-        this.upperLimit = (int)(9 * Math.pow(10, digits - 1));
+        this.upperLimit = (int) (9 * Math.pow(10, digits - 1));
         this.rand = new Random();
     }
     
@@ -35,7 +34,7 @@ public class CalculationGenerator {
         this.playerName = name;
         this.operationType = operationType;
         this.numDigits = digits;
-        this.upperLimit = (int)(9 * Math.pow(10, digits - 1));
+        this.upperLimit = (int) (9 * Math.pow(10, digits - 1));
         this.rand = new Random(seed);
     }
     
@@ -45,14 +44,13 @@ public class CalculationGenerator {
     
     public String getCalculation() {
         this.firstNum = rand.nextInt(this.upperLimit) + 
-                (int)Math.pow(10, this.numDigits - 1);
+                (int) Math.pow(10, this.numDigits - 1);
         this.secondNum = rand.nextInt(this.upperLimit) + 1;
         return (this.firstNum + " + " + this.secondNum + " = ?");
     }
     
     public boolean checkAnswer(String a) {
-        try 
-        {
+        try {
             int answer = Integer.parseInt(a);
             if (answer == this.firstNum + this.secondNum) { // only works 
                 // for addition at this stage!
@@ -60,8 +58,7 @@ public class CalculationGenerator {
                 this.totalAnswers++;
                 return true;
             }
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             this.totalAnswers++;
             return false;
         }

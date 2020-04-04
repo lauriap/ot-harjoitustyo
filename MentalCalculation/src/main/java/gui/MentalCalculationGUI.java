@@ -57,14 +57,14 @@ public class MentalCalculationGUI extends Application {
         String[] operationTypes = new String[]{"Addition", "Subtraction", 
             "Multiplication", "Division", "All"};
         ComboBox operationComboBox = new ComboBox(FXCollections.observableArrayList(
-        operationTypes));
+            operationTypes));
         operationComboBox.getSelectionModel().selectFirst();
 
         // digits box
         Label digitLabel = new Label("Digits");
         String[] digitTypes = new String[]{"1", "2", "3", "4", "5"}; 
         ComboBox digitComboBox = new ComboBox(FXCollections.observableArrayList(
-        digitTypes));
+            digitTypes));
         digitComboBox.getSelectionModel().selectFirst();
         
         // start button
@@ -117,7 +117,7 @@ public class MentalCalculationGUI extends Application {
         VBox gameSettingsItems = new VBox();
         gameSettingsItems.setMargin(startButton, new Insets(0, 10, 20, 10));
         gameSettingsItems.setMargin(settingsMainMenuButton, new Insets(
-        0, 10, 20, 10));
+            0, 10, 20, 10));
         gameSettingsItems.getChildren().addAll(nameBox, operationBox, digitBox,
                 startButton, settingsMainMenuButton);
         gameSettingsItems.setAlignment(Pos.BASELINE_CENTER);
@@ -178,8 +178,7 @@ public class MentalCalculationGUI extends Application {
         // quitButton
         EventHandler<ActionEvent> quitEvent = new EventHandler<ActionEvent>() { 
             @Override
-            public void handle(ActionEvent e) 
-            { 
+            public void handle(ActionEvent e) { 
                 System.exit(0);
             } 
         }; 
@@ -192,8 +191,8 @@ public class MentalCalculationGUI extends Application {
         startButton.setOnAction(e -> {
             // create new CalculationGenerator Object
             String playerName = nameField.getText();
-            String operationType = (String)digitComboBox.getValue();
-            int digits = Integer.parseInt((String)digitComboBox.getValue());
+            String operationType = (String) digitComboBox.getValue();
+            int digits = Integer.parseInt((String) digitComboBox.getValue());
             calculationGenerator = new CalculationGenerator(playerName,
             operationType, digits);
             
@@ -205,7 +204,7 @@ public class MentalCalculationGUI extends Application {
             
             //make screen visible
             stage.setScene(gameScreen);
-                });
+        });
         
         // settingsMainMenuButton
         settingsMainMenuButton.setOnAction(e -> stage.setScene(menuScene));
