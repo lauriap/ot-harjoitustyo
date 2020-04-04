@@ -48,7 +48,6 @@ mvn jxr:jxr checkstyle:checkstyle
 * **ONLY ADDITION PROBLEMS ARE SUPPORTED AT THIS STAGE.** Using other settings won't crash the program, but they will only yield addition problems.
 * No database for scores set up yet.
 * No high score tab yet.
-* Low test coverage.
 
 ## Mental calculation game - project links
 
