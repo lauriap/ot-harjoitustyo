@@ -13,10 +13,6 @@ public class CalculationGenerator {
     Random rand;
     // point system still missing
     
-    public CalculationGenerator() {
-        
-    }
-    
     public CalculationGenerator(String operationType, int digits) {
         this.operationType = operationType;
         this.nextOperationType = this.operationType; //used when "All" selected
@@ -41,9 +37,21 @@ public class CalculationGenerator {
     
     /**
      * Sets the upper limit for random values based on the number of digits.
+     * I.e. With 9 digit, the upper limit is 9. With two, it is 90.
+     * With 3, 900. Additional random number with ones less digit is added
+     * to get a randomized value with the correct amount of digits, 
+     * i.e. 900 + 87 = 987.
      */
     public void setUpperLimit() {
         this.upperLimit = (int) (9 * Math.pow(10, this.numDigits - 1));
+    }
+    
+    public int getUpperLimit() {
+        return this.upperLimit;
+    }
+    
+    public String getNextOperationType() {
+        return this.nextOperationType;
     }
     
     /**
@@ -62,9 +70,6 @@ public class CalculationGenerator {
                 this.nextOperationType = "Multiplication";
             } else if (r == 3) {
                 this.nextOperationType = "Division";
-            } else {
-                // if "All" is not used, return the set operationType
-                this.nextOperationType = this.operationType;
             }
         } 
     }

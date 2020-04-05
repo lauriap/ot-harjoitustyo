@@ -21,52 +21,60 @@ public class CalculationGeneratorTest {
         randCalcGen = new CalculationGenerator("Addition", 5);
     }
     
-    /**
-     * Tests that the constructor creates a CalculationGenerator Object
-     */
     @Test
     public void calcGenExists() {
         assertTrue(calcGen!=null); 
     }
     
-    /**
-     * Tests that the playerName is returned correctly
-     */
+    @Test
+    public void setUpperLimitIsCorrect() {
+        calcGen.setUpperLimit();
+        assertEquals(calcGen.getUpperLimit(), 900);
+    }
     
-//    @Test 
-//    public void playerNameIsCorrect() {
-//        assertEquals("testname", calcGen.getplayerName());
-//    } // MOVE TO CalculationGameTest!
     
     @Test
-    public void checkAnswersWorksCorrectly() {
-        calcGen.getCalculation();
-        assertEquals(true, calcGen.checkAnswer("966"));
+    public void getRightAnswersReturnsRightAnswer() {
+        int[] answers = new int[]{14640, 1, 0, 180544, 1394, 6, 213968, 
+        1, 381, 541, 1103, 548, 144150, 187480, 299406, 0};
         
-        calcGen.getCalculation();
-        assertEquals(false, calcGen.checkAnswer("-5"));
+        for(int i = 0; i < 16; i++) {
+            calcGen.getCalculation();
+            assertEquals(calcGen.getRightAnswer(), answers[i]);
+        }
         
-        calcGen.getCalculation();
-        assertEquals(false, calcGen.checkAnswer("abc"));
+        String[] StringAnswers = new String[]{"asd", "asd", "asd", "asd", "asd", 
+            "asd", "asd", "asd", "asd", "asd"};
+        
+        for(int i = 0; i < 10; i++) {
+            calcGen.getCalculation();
+            assertNotEquals(calcGen.getRightAnswer(), StringAnswers[i]);
+        }
+        
+        // check that 
+        randCalcGen.getCalculation();
+        randCalcGen.getRightAnswer();
+        assertEquals(randCalcGen.getNextOperationType(), "Addition");
         
     }
     
-//    MOVE TO CalculationGameTest!
-//    @Test
-//    public void updateCorrectAnswersUpdatesCorrectly() {
-//        assertEquals("Correct answers this session: 0/0", 
-//                calcGen.updateCorrectAnswers());
-//        
-//        calcGen.getCalculation();
-//        calcGen.checkAnswer("5");
-//        assertEquals("Correct answers this session: 0/1", 
-//                calcGen.updateCorrectAnswers());
-//        
-//        calcGen.getCalculation();
-//        calcGen.checkAnswer("182");
-//        assertEquals("Correct answers this session: 1/2", 
-//                calcGen.updateCorrectAnswers());
-//        
-//    }
+    @Test
+    public void checkAnswersWorksCorrectly() {
+        
+        for(int i = 0; i < 50; i++) {
+            calcGen.getCalculation();
+            String ans = Integer.toString(calcGen.getRightAnswer());
+            assertEquals(true, calcGen.checkAnswer(ans));
+        }
+        
+        calcGen.getCalculation();
+        assertEquals(calcGen.checkAnswer("asd"), false);
+        
+        calcGen.getCalculation();
+        assertEquals(calcGen.checkAnswer("-99999"), false);
+        
+    }
+    
+
     
 }
