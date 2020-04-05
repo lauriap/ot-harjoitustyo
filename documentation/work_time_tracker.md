@@ -9,5 +9,6 @@
 | 28.03. | 8        | First version of GUI |
 | 29.03. | 6        | First version of game logic, more GUI, tests, documentation |
 | 04.04. | 1        | Test coverage and checkstyle corrections |
-| TOTAL  | 19       | | 
+| 05.04. | 6        | Rearranging GUI + logic, creating CalculatorGame class, test coverage, architecture planning |
+| TOTAL  | 25       | | 
 

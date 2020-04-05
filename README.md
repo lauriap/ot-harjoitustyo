@@ -7,7 +7,26 @@ Mental Calculation Game is a simple game for practicing mental calculation with 
 ![Game example](https://github.com/lauriap/ot-harjoitustyo/blob/master/documentation/game_example.png?raw=true)
 
 
+## Mental calculation game - project links
+
+[Documentation](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation)
+
+[Specification](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation/specification.md)
+
+[Architecture](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation/architecture.md)
+
+[Work time tracker](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation/work_time_tracker.md)
+
+
+## Known issues
+
+* **ALL CALCULATIONS NOW SUPPORTED, BUT ONLY WITH INTEGERS.** Division "works", but the results don't include decimals. E.g. 6 / 7 = 0, 5 / 2 = 2.
+* No database for scores set up yet.
+* No high score tab yet.
+
+
 ## How to run
+
 
 ### Running the program
 
@@ -43,17 +62,5 @@ mvn jxr:jxr checkstyle:checkstyle
 ```
 
 
-## Known issues
 
-* **ALL CALCULATIONS NOW SUPPORTED, BUT ONLY WITH INTEGERS.** Division "works", but the results don't include decimals. E.g. 6 / 7 = 0, 5 / 2 = 2.
-* No database for scores set up yet.
-* No high score tab yet.
-
-## Mental calculation game - project links
-
-[Documentation](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation)
-
-[Specification](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation/specification.md)
-
-[Work time tracker](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation/work_time_tracker.md)
 

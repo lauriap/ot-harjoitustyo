@@ -51,7 +51,6 @@ public class CalculationGeneratorTest {
             assertNotEquals(calcGen.getRightAnswer(), StringAnswers[i]);
         }
         
-        // check that 
         randCalcGen.getCalculation();
         randCalcGen.getRightAnswer();
         assertEquals(randCalcGen.getNextOperationType(), "Addition");
