@@ -9,5 +9,5 @@
 | 28.03. | 8        | First version of GUI |
 | 29.03. | 6        | First version of game logic, more GUI, tests, documentation |
 | 04.04. | 1        | Test coverage and checkstyle corrections |
-| TOTAL  | 18       | | 
+| TOTAL  | 19       | | 
 

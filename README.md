@@ -45,7 +45,7 @@ mvn jxr:jxr checkstyle:checkstyle
 
 ## Known issues
 
-* **ONLY ADDITION PROBLEMS ARE SUPPORTED AT THIS STAGE.** Using other settings won't crash the program, but they will only yield addition problems.
+* **ALL CALCULATIONS NOW SUPPORTED, BUT ONLY WITH INTEGERS.** Division "works", but the results don't include decimals. E.g. 6 / 7 = 0, 5 / 2 = 2.
 * No database for scores set up yet.
 * No high score tab yet.
 

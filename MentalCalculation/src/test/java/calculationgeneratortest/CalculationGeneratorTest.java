@@ -17,8 +17,8 @@ public class CalculationGeneratorTest {
     
     @Before
     public void setUp() {
-        calcGen = new CalculationGenerator("testname", "All", 3, 1337);
-        randCalcGen = new CalculationGenerator("testname1", "Addition", 5);
+        calcGen = new CalculationGenerator("All", 3, 1337);
+        randCalcGen = new CalculationGenerator("Addition", 5);
     }
     
     /**
@@ -32,10 +32,11 @@ public class CalculationGeneratorTest {
     /**
      * Tests that the playerName is returned correctly
      */
-    @Test 
-    public void playerNameIsCorrect() {
-        assertEquals("testname", calcGen.getplayerName());
-    }
+    
+//    @Test 
+//    public void playerNameIsCorrect() {
+//        assertEquals("testname", calcGen.getplayerName());
+//    } // MOVE TO CalculationGameTest!
     
     @Test
     public void checkAnswersWorksCorrectly() {
@@ -50,22 +51,22 @@ public class CalculationGeneratorTest {
         
     }
     
-    
-    @Test
-    public void updateCorrectAnswersUpdatesCorrectly() {
-        assertEquals("Correct answers this session: 0/0", 
-                calcGen.updateCorrectAnswers());
-        
-        calcGen.getCalculation();
-        calcGen.checkAnswer("5");
-        assertEquals("Correct answers this session: 0/1", 
-                calcGen.updateCorrectAnswers());
-        
-        calcGen.getCalculation();
-        calcGen.checkAnswer("182");
-        assertEquals("Correct answers this session: 1/2", 
-                calcGen.updateCorrectAnswers());
-        
-    }
+//    MOVE TO CalculationGameTest!
+//    @Test
+//    public void updateCorrectAnswersUpdatesCorrectly() {
+//        assertEquals("Correct answers this session: 0/0", 
+//                calcGen.updateCorrectAnswers());
+//        
+//        calcGen.getCalculation();
+//        calcGen.checkAnswer("5");
+//        assertEquals("Correct answers this session: 0/1", 
+//                calcGen.updateCorrectAnswers());
+//        
+//        calcGen.getCalculation();
+//        calcGen.checkAnswer("182");
+//        assertEquals("Correct answers this session: 1/2", 
+//                calcGen.updateCorrectAnswers());
+//        
+//    }
     
 }
