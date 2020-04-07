@@ -1,8 +1,8 @@
 
-package gui;
+package mentalcalculator.gui;
 
-import calculationgame.CalculationGame;
-import calculationgenerator.CalculationGenerator;
+import mentalcalculator.game.CalculationGame;
+import mentalcalculator.generator.CalculationGenerator;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;

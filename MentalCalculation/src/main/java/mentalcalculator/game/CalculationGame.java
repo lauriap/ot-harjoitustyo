@@ -1,5 +1,5 @@
 
-package calculationgame;
+package mentalcalculator.game;
 
 /**
  *

@@ -1,4 +1,4 @@
-package calculationgenerator;
+package mentalcalculator.generator;
 
 import java.util.Random;
 

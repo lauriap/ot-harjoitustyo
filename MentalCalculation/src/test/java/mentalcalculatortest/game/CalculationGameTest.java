@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package calculationgametest;
+package mentalcalculatortest.game;
 
-import calculationgame.CalculationGame;
+import mentalcalculator.game.CalculationGame;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

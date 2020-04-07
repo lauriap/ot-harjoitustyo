@@ -1,7 +1,7 @@
 
-package calculationgeneratortest;
+package mentalcalculatortest.generator;
 
-import calculationgenerator.CalculationGenerator;
+import mentalcalculator.generator.CalculationGenerator;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
