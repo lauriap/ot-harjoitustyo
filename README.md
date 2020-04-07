@@ -34,7 +34,7 @@ Mental Calculation Game is a simple game for practicing mental calculation with 
 * In the terminal, navigate to /ot-harjoitustyo/MentalCalculation/ folder and write:
 
 ```
-mvn compile exec:java -Dexec.mainClass=gui.Main
+mvn compile exec:java -Dexec.mainClass=mentalcalculator.gui.Main
 ```
 
 * Alternatively, you can open the project on NetBeans and run it there

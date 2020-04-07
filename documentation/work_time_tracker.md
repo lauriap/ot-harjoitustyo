@@ -11,5 +11,6 @@
 | 04.04. | 1        | Test coverage and checkstyle corrections |
 | 05.04. | 6        | Rearranging GUI + logic, creating CalculatorGame class, test coverage, architecture planning |
 | 06.04. | 3        | Architecture documentation (images), database planning |
-| TOTAL  | 28       | | 
+| 07.04. | 0.5      | Renaming packages + documentation |
+| TOTAL  | 28.5     | | 
 
