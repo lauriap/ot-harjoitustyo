@@ -24,12 +24,28 @@ public class CalculationGame {
         return this.playerName;
     }
     
+    public String getOperationType() {
+        return this.operationType;
+    }
+    
     /**
      * Returns the number of digits used in the current game.
      * @return number of digits
      */
     public int getNumDigits() {
         return this.numDigits;
+    }
+
+    public int getPoints() {
+        return this.points;
+    }
+    
+    public int getRightAnswers() {
+        return this.rightAnswers;
+    }
+    
+    public int getTotalAnswers() {
+        return this.totalAnswers;
     }
     
     /**

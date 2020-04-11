@@ -1,6 +1,7 @@
 
 package mentalcalculator.gui;
 
+import java.sql.SQLException;
 import mentalcalculator.game.CalculationGame;
 import mentalcalculator.generator.CalculationGenerator;
 import javafx.application.Application;
@@ -17,12 +18,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import mentalcalculator.dao.DBCalculationGameDAO;
 
 
 public class MentalCalculationGUI extends Application {
     
     CalculationGenerator calculationGenerator;
     CalculationGame calculationGame;
+    DBCalculationGameDAO gameDAO;
     
     // default button size
     int minWidth = 200;
@@ -202,6 +205,8 @@ public class MentalCalculationGUI extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         
+        gameDAO = new DBCalculationGameDAO();
+        
         this.createMenuObjects();
         this.createSettingsObjects();
         this.createGameScreenObjects();
@@ -254,7 +259,15 @@ public class MentalCalculationGUI extends Application {
         
         // exitGameButton
         // DATABASE ENTRY TASK TO BE ADDED
-        exitGameButton.setOnAction(e -> stage.setScene(menuScene));
+        exitGameButton.setOnAction(e -> {
+                try {
+                    gameDAO.create(calculationGame);
+                } catch (SQLException sqlException) {
+                    System.out.println(sqlException.getMessage());
+                }
+                
+                stage.setScene(menuScene);
+            });
         
         // show main menu scene
         stage.show();
