@@ -16,6 +16,9 @@ public class CalculationGame {
         this.numDigits = digits;
     }
     
+    public CalculationGame() {
+    }
+    
     /**
      * Returns player name.
      * @return String playerName
@@ -24,8 +27,16 @@ public class CalculationGame {
         return this.playerName;
     }
     
+    public void setPlayerName(String name) {
+        this.playerName = name;
+    }
+    
     public String getOperationType() {
         return this.operationType;
+    }
+    
+    public void setOperationType(String type) {
+        this.operationType = type;
     }
     
     /**
@@ -36,16 +47,32 @@ public class CalculationGame {
         return this.numDigits;
     }
 
+    public void setNumDigits(int d) {
+        this.numDigits = d;
+    }
+    
     public int getPoints() {
         return this.points;
+    }
+    
+    public void setPoints(int p) {
+        this.points = p;
     }
     
     public int getRightAnswers() {
         return this.rightAnswers;
     }
     
+    public void setRightAnswers(int r) {
+        this.rightAnswers = r;
+    }
+    
     public int getTotalAnswers() {
         return this.totalAnswers;
+    }
+    
+    public void setTotalAnswers(int t) {
+        this.totalAnswers = t;
     }
     
     /**

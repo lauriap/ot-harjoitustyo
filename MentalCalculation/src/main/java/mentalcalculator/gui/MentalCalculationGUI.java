@@ -212,6 +212,9 @@ public class MentalCalculationGUI extends Application {
         this.createGameScreenObjects();
         this.createScenes();
         
+        // update scoreboard **************'UPDATE THIS!! ****************
+        //gameDAO.getGameList();
+        
         stage.setTitle("Mental Calculation Game");
         stage.setScene(menuScene);
 
@@ -222,9 +225,21 @@ public class MentalCalculationGUI extends Application {
         // newGameButton
         newGameButton.setOnAction(e -> stage.setScene(gameSettings)); 
         
-        // high score
+        // high score button
         
-        // TO BE ADDED LATER
+        highScoreButton.setOnAction(e -> {
+            try {
+                gameDAO.getGameList(); // save List 
+                
+            } catch (Exception sqlException) {
+                System.out.println(sqlException.getMessage());
+            }
+            // update scoreboard method here
+            
+            
+            //make screen visible
+            //stage.setScene(highScoreScreen);
+        });
         
         // quitButton
         EventHandler<ActionEvent> quitEvent = new EventHandler<ActionEvent>() { 
@@ -258,9 +273,9 @@ public class MentalCalculationGUI extends Application {
         });
         
         // exitGameButton
-        // DATABASE ENTRY TASK TO BE ADDED
         exitGameButton.setOnAction(e -> {
                 try {
+                    // add database entry for the game
                     gameDAO.create(calculationGame);
                 } catch (SQLException sqlException) {
                     System.out.println(sqlException.getMessage());

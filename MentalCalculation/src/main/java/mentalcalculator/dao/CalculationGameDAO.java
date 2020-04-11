@@ -13,8 +13,8 @@ import mentalcalculator.game.CalculationGame;
  */
 public interface CalculationGameDAO<T, K> {
     
-    CalculationGame create(CalculationGame game) throws SQLException;
+    void create(CalculationGame game) throws SQLException;
     
-    List<CalculationGame> getAll() throws SQLException;
+    List<CalculationGame> getGameList() throws SQLException;
     
 }

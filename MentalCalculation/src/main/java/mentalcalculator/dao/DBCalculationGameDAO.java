@@ -4,7 +4,9 @@ package mentalcalculator.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import mentalcalculator.game.CalculationGame;
 
@@ -15,15 +17,22 @@ import mentalcalculator.game.CalculationGame;
 public class DBCalculationGameDAO implements 
         CalculationGameDAO<CalculationGame, Integer> {
     
-    private List<CalculationGame> games;
+    private List<CalculationGame> games = new ArrayList<CalculationGame>();
     
-    @Override
-    public CalculationGame create(CalculationGame game) throws SQLException {
+    public Connection getConnection() throws SQLException {
         
         Connection connection = DriverManager.getConnection(
-                "jdbc:sqlite:/home/lauri/Documents/ot2020/ot-harjoitustyo/"
-                        + "MentalCalculation/db/mentalcalculator.db", "sa", "");
-
+        "jdbc:sqlite:/home/lauri/Documents/ot2020/ot-harjoitustyo/"
+                + "MentalCalculation/db/mentalcalculator.db");
+        
+        return connection;
+    }
+    
+    @Override
+    public void create(CalculationGame game) throws SQLException {
+        
+        Connection connection = this.getConnection();
+        
         PreparedStatement stmt = connection.prepareStatement(
                 "INSERT INTO calculationgame(playerName, operationType, "
                         + "digits, points, rightAnswers, totalAnswers) "
@@ -38,20 +47,36 @@ public class DBCalculationGameDAO implements
         stmt.executeUpdate();
         stmt.close();
         connection.close();
-
-
-
-        //games.add(game);
-        // lisää tietokantaan
-        return game;
     }
     
     @Override
-    public List<CalculationGame> getAll() throws SQLException {
+    public List<CalculationGame> getGameList() throws SQLException {
         
-        // lisää tietokantatoiminnallisuus
+        Connection connection = this.getConnection();
         
-        return games;
+        PreparedStatement stmt = connection.prepareStatement(
+                "SELECT * FROM calculationgame");
+        ResultSet rs = stmt.executeQuery();
+        
+            while(rs.next()){
+                CalculationGame game = new CalculationGame();
+                game.setPlayerName(rs.getString("playerName"));
+                game.setOperationType(rs.getString("operationType"));
+                game.setNumDigits(rs.getInt("digits"));
+                game.setPoints(rs.getInt("points"));
+                game.setRightAnswers(rs.getInt("rightAnswers"));
+                game.setTotalAnswers(rs.getInt("totalAnswers"));
+                this.games.add(game);
+            }
+        rs.close();
+        connection.close();
+        
+        // REPLACE WITH A METHOD FOR UPDATING HIGH SCORES
+        for (int i = 0; i < this.games.size(); i++) {
+            System.out.println(this.games.get(i).getPoints());
+        }
+        
+        return this.games;
     }
     
     
