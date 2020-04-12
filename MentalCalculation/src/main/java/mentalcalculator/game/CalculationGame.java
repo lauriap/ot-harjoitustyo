@@ -7,6 +7,7 @@ package mentalcalculator.game;
  */
 public class CalculationGame {
     
+    
     String playerName, operationType;
     int numDigits, points, rightAnswers, totalAnswers;
     
@@ -23,7 +24,7 @@ public class CalculationGame {
      * Returns player name.
      * @return String playerName
      */
-    public String getplayerName() {
+    public String getPlayerName() {
         return this.playerName;
     }
     

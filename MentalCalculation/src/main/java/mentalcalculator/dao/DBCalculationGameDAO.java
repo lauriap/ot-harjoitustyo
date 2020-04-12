@@ -37,7 +37,7 @@ public class DBCalculationGameDAO implements
                 "INSERT INTO calculationgame(playerName, operationType, "
                         + "digits, points, rightAnswers, totalAnswers) "
                         + "VALUES (?, ?, ?, ?, ?, ?)");
-        stmt.setString(1, game.getplayerName());
+        stmt.setString(1, game.getPlayerName());
         stmt.setString(2, game.getOperationType());
         stmt.setInt(3, game.getNumDigits());
         stmt.setInt(4, game.getPoints());
@@ -50,7 +50,7 @@ public class DBCalculationGameDAO implements
     }
     
     @Override
-    public List<CalculationGame> getGameList() throws SQLException {
+    public void updateGameList() throws SQLException {
         
         Connection connection = this.getConnection();
         
@@ -75,9 +75,10 @@ public class DBCalculationGameDAO implements
         for (int i = 0; i < this.games.size(); i++) {
             System.out.println(this.games.get(i).getPoints());
         }
-        
-        return this.games;
     }
     
+    public List<CalculationGame> getGameList() {
+        return this.games;
+    }
     
 }

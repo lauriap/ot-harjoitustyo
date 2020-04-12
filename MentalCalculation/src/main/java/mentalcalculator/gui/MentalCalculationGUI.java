@@ -2,10 +2,12 @@
 package mentalcalculator.gui;
 
 import java.sql.SQLException;
+import java.util.List;
 import mentalcalculator.game.CalculationGame;
 import mentalcalculator.generator.CalculationGenerator;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -14,7 +16,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -55,9 +60,21 @@ public class MentalCalculationGUI extends Application {
     Button answerButton, exitGameButton;
     VBox gameScreenItems;
     
+    // high score screen objects
+    Label highScoreLabel;
+    Button scoreMainMenuButton;
+    TableView<CalculationGame> scoreTable;
+    TableColumn rankCol;
+    TableColumn nameCol, operationCol;
+    TableColumn correctAnswersCol, 
+            totalAnswersCol, pointsCol;
+    VBox highScoreScreenItems;
+    ObservableList<CalculationGame> gameData;
+    
+    
     // scenes
 
-    Scene menuScene, gameSettings, gameScreen;
+    Scene menuScene, gameSettings, gameScreen, highScoreScreen;
     
     public void setButtonSize(Button b) {
         b.setMinWidth(this.minWidth);
@@ -81,6 +98,71 @@ public class MentalCalculationGUI extends Application {
         menuItems.setMargin(newGameButton, new Insets(0, 10, 20, 10));
         menuItems.setMargin(highScoreButton, new Insets(20, 10, 20, 10));
         menuItems.setMargin(quitButton, new Insets(20, 10, 20, 10));
+    }
+    
+    public void createHighScoreObjects() {
+        highScoreLabel = new Label("High Score");
+        scoreMainMenuButton = new Button("Main Menu");
+        this.setButtonSize(scoreMainMenuButton);
+        
+        scoreTable = new TableView<>();
+        scoreTable.setEditable(false);
+        
+        rankCol = new TableColumn("Rank");
+        
+        nameCol = new TableColumn("Player name");
+        nameCol.setCellValueFactory(
+                new PropertyValueFactory<>("playerName"));
+        
+        operationCol = new TableColumn("Operation type");
+        operationCol.setCellValueFactory(
+                new PropertyValueFactory<>("operationType"));
+        
+        correctAnswersCol = new TableColumn("Correct answers"); // CHANGE TO INTEGER x/y
+        correctAnswersCol.setCellValueFactory(
+                new PropertyValueFactory<>("rightAnswers"));
+        
+        totalAnswersCol = new TableColumn("Total answers"); //NOW TOTAL ANSWERS, CHANGE TO numDigits
+        totalAnswersCol.setCellValueFactory(
+                new PropertyValueFactory<>("totalAnswers"));
+        
+        pointsCol = new TableColumn("Points");
+        pointsCol.setCellValueFactory(
+                new PropertyValueFactory<>("points"));
+        
+        scoreTable.getColumns().addAll(rankCol, nameCol, operationCol, 
+                correctAnswersCol, totalAnswersCol, pointsCol);
+        
+        try {
+           gameDAO.updateGameList();
+        } catch (SQLException sqlException) {
+            System.out.println(sqlException.getMessage());
+        }
+        
+        // gameData = ObservableList<CalculationGame>
+        gameData = this.getScores(gameDAO.getGameList());
+        scoreTable.setItems(gameData); //setItems GETS CORRECT OBJECT LIST
+
+        
+        
+        rankCol.prefWidthProperty().bind(scoreTable.
+                widthProperty().multiply(0.10));
+        operationCol.prefWidthProperty().bind(scoreTable.
+                widthProperty().multiply(0.20));
+        nameCol.prefWidthProperty().bind(scoreTable.
+                widthProperty().multiply(0.15));
+        correctAnswersCol.prefWidthProperty().bind(scoreTable.
+                widthProperty().multiply(0.20));
+        totalAnswersCol.prefWidthProperty().bind(scoreTable.
+                widthProperty().multiply(0.25));
+        pointsCol.prefWidthProperty().bind(scoreTable.
+                widthProperty().multiply(0.10));
+        
+        highScoreScreenItems = new VBox(scoreTable, scoreMainMenuButton);
+        highScoreScreenItems.setAlignment(Pos.BASELINE_CENTER);
+        highScoreScreenItems.setMargin(scoreTable, new Insets(0, 10, 20, 10));
+        highScoreScreenItems.setMargin(scoreMainMenuButton, 
+                new Insets(20, 10, 20, 10));
     }
     
     public void createSettingsObjects() {
@@ -160,11 +242,13 @@ public class MentalCalculationGUI extends Application {
     public void createScenes() {
         
         menuScene = new Scene(menuItems, 500, 300);
-
         
         gameSettings = new Scene(gameSettingsItems, 500, 350);
         
         gameScreen = new Scene(gameScreenItems, 500, 350);
+        
+        highScoreScreen = new Scene(highScoreScreenItems, 700, 700);
+        
     }
     
     public void startNewGame() {
@@ -202,6 +286,18 @@ public class MentalCalculationGUI extends Application {
         answerField.requestFocus();
     }
     
+    public ObservableList<CalculationGame> getScores(
+            List<CalculationGame> gameList) {
+        
+        ObservableList<CalculationGame> obsList = 
+                FXCollections.observableArrayList();
+        
+        for(int i = 0; i < gameList.size(); i++) {
+            obsList.add(gameList.get(i));
+        }
+        return obsList;
+    }
+    
     @Override
     public void start(Stage stage) throws Exception {
         
@@ -210,10 +306,8 @@ public class MentalCalculationGUI extends Application {
         this.createMenuObjects();
         this.createSettingsObjects();
         this.createGameScreenObjects();
+        this.createHighScoreObjects();
         this.createScenes();
-        
-        // update scoreboard **************'UPDATE THIS!! ****************
-        //gameDAO.getGameList();
         
         stage.setTitle("Mental Calculation Game");
         stage.setScene(menuScene);
@@ -228,17 +322,9 @@ public class MentalCalculationGUI extends Application {
         // high score button
         
         highScoreButton.setOnAction(e -> {
-            try {
-                gameDAO.getGameList(); // save List 
-                
-            } catch (Exception sqlException) {
-                System.out.println(sqlException.getMessage());
-            }
-            // update scoreboard method here
-            
             
             //make screen visible
-            //stage.setScene(highScoreScreen);
+            stage.setScene(highScoreScreen);
         });
         
         // quitButton
@@ -249,6 +335,16 @@ public class MentalCalculationGUI extends Application {
             } 
         }; 
         quitButton.setOnAction(quitEvent);
+        
+        // high score screen main menu button
+        scoreMainMenuButton.setOnAction(e -> { 
+            try {
+               gameDAO.updateGameList();
+            } catch (SQLException sqlException) {
+                System.out.println(sqlException.getMessage());
+            }
+            stage.setScene(menuScene);
+                });
         
         // game settings menu buttons
         
@@ -275,8 +371,9 @@ public class MentalCalculationGUI extends Application {
         // exitGameButton
         exitGameButton.setOnAction(e -> {
                 try {
-                    // add database entry for the game
+                    // add database entry for the game and update high score
                     gameDAO.create(calculationGame);
+                    gameDAO.updateGameList();
                 } catch (SQLException sqlException) {
                     System.out.println(sqlException.getMessage());
                 }

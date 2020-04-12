@@ -13,5 +13,6 @@
 | 06.04. | 3        | Architecture documentation (images), database planning |
 | 07.04. | 0.5      | Renaming packages + documentation |
 | 11.04. | 7        | Reading about java + sqlite, writing DAOs and database implementation for CalculationGame |
-| TOTAL  | 35.5     | | 
+| 12.04. | 10       | Implementing JavaFX TableView (debugging why data not showing) |
+| TOTAL  | 45.5     | | 
 

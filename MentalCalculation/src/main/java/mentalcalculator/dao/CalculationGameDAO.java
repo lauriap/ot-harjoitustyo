@@ -15,6 +15,8 @@ public interface CalculationGameDAO<T, K> {
     
     void create(CalculationGame game) throws SQLException;
     
-    List<CalculationGame> getGameList() throws SQLException;
+    void updateGameList() throws SQLException;
+    
+    List<CalculationGame> getGameList();
     
 }

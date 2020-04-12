@@ -28,7 +28,7 @@ public class CalculationGameTest {
      */
     @Test 
     public void playerNameIsCorrect() {
-        assertEquals(calcGame.getplayerName(), "testname");
+        assertEquals(calcGame.getPlayerName(), "testname");
     }
     
     @Test
