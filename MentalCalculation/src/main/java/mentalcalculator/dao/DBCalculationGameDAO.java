@@ -22,8 +22,7 @@ public class DBCalculationGameDAO implements
     public Connection getConnection() throws SQLException {
         
         Connection connection = DriverManager.getConnection(
-        "jdbc:sqlite:/home/lauri/Documents/ot2020/ot-harjoitustyo/"
-                + "MentalCalculation/db/mentalcalculator.db");
+        "jdbc:sqlite:db/mentalcalculator.db");
         
         return connection;
     }
