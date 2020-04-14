@@ -243,8 +243,6 @@ public class MentalCalculationGUI extends Application {
         menuScene = new Scene(menuItems, 500, 300);
         gameSettings = new Scene(gameSettingsItems, 500, 350);
         gameScreen = new Scene(gameScreenItems, 500, 350);
-        //highScoreScreen = new Scene(new Group());
-        //((Group) highScoreScreen.getRoot()).getChildren().addAll(highScoreScreenItems);
         highScoreScreen = new Scene(highScoreScreenItems, 700, 700);
     }
     

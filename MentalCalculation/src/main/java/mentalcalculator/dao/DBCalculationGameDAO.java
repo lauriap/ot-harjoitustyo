@@ -138,10 +138,6 @@ public class DBCalculationGameDAO implements
         rs.close();
         connection.close();
         
-        // REPLACE WITH A METHOD FOR UPDATING HIGH SCORES
-        for (int i = 0; i < this.games.size(); i++) {
-            System.out.println(this.games.get(i).getPoints());
-        }
     }
     
     public List<CalculationGame> getGameList() {
