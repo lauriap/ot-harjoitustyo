@@ -21,8 +21,9 @@ Mental Calculation Game is a simple game for practicing mental calculation with 
 ## Known issues
 
 * **ALL CALCULATIONS NOW SUPPORTED, BUT ONLY WITH INTEGERS.** Division "works", but the results don't include decimals. E.g. 6 / 7 = 0, 5 / 2 = 2.
-* **Database for high scores now functioning, but with limitations.** Showing all results instead of top 10. Rank numbers missing.
+* **Database for high scores now functioning, but with limitations.** Showing all results instead of ordered top 10. Rank numbers missing.
 * High score tab set up, but points system still not complete.
+* Test coverage needs to be increased (will be done next week).
 
 
 ## How to run
@@ -37,9 +38,25 @@ Mental Calculation Game is a simple game for practicing mental calculation with 
 mvn compile exec:java -Dexec.mainClass=mentalcalculator.gui.Main
 ```
 
-* Alternatively, you can open the project on NetBeans and run it there
+### Creating an executable jar
 
-### Running tests
+Alternatively, you can run the program by creating a jar file using
+
+```
+mvn package
+```
+
+in /ot-harjoitustyo/MentalCalculation/ folder. The jar file is created to /ot-harjoitustyo/MentalCalculation/target folder.
+
+You can run the program using
+
+```
+java -jar MentalCalculation-1.0-SNAPSHOT.jar
+```
+
+in the terminal window while in the same folder as the .jar file.
+
+## Running tests
 
 All the commands are done in the terminal while in the following folder: /ot-harjoitustyo/MentalCalculation/
 
@@ -60,6 +77,7 @@ mvn test jacoco:report
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
+
 
 
 

@@ -15,5 +15,6 @@
 | 11.04. | 7        | Reading about java + sqlite, writing DAOs and database implementation for CalculationGame |
 | 12.04. | 10       | Implementing JavaFX TableView (debugging why data not showing) |
 | 13.04. | 4        | TableView debugging, setting up config.properties, documentation update |
-| TOTAL  | 49.5     | | 
+| 14.04. | 2        | Code for database creation, mvn package setup |
+| TOTAL  | 51.5     | | 
 

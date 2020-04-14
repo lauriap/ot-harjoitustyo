@@ -5,12 +5,28 @@
  */
 package mentalcalculator.gui;
 
+import java.sql.SQLException;
+import mentalcalculator.dao.DBCalculationGameDAO;
+
+
+
 /**
  *
  * @author lauri
  */
 public class Main {
     public static void main(String[] args) {
+        
+        DBCalculationGameDAO db = new DBCalculationGameDAO();
+        if(!db.databaseExists()) {
+            db.createDataBase();
+            try {
+                db.createScoreTable();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        
         MentalCalculationGUI.main(args);
     }
 }

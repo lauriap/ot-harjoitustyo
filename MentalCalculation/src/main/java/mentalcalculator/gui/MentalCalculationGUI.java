@@ -361,7 +361,7 @@ public class MentalCalculationGUI extends Application {
         exitGameButton.setOnAction(e -> {
                 try {
                     // add database entry for the game and update table
-                    gameDAO.create(calculationGame);
+                    gameDAO.addGame(calculationGame);
                     gameData.add(calculationGame);
                 } catch (SQLException sqlException) {
                     System.out.println(sqlException.getMessage());
