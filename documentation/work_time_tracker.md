@@ -16,5 +16,7 @@
 | 12.04. | 10       | Implementing JavaFX TableView (debugging why data not showing) |
 | 13.04. | 4        | TableView debugging, setting up config.properties, documentation update |
 | 14.04. | 2        | Code for database creation, mvn package setup |
-| TOTAL  | 51.5     | | 
+| 17.04. | 1        | Drawing sequence diagrams |
+| 19.04. | 1        | Checkstyle + documentation updates, creating a release |
+| TOTAL  | 53.5     | | 
 

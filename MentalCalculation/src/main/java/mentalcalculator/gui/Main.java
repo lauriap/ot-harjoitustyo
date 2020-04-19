@@ -18,7 +18,7 @@ public class Main {
     public static void main(String[] args) {
         
         DBCalculationGameDAO db = new DBCalculationGameDAO();
-        if(!db.databaseExists()) {
+        if (!db.databaseExists()) {
             db.createDataBase();
             try {
                 db.createScoreTable();

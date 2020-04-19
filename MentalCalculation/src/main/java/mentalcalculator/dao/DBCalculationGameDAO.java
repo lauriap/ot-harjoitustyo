@@ -22,11 +22,6 @@ public class DBCalculationGameDAO implements
     
     private List<CalculationGame> games = new ArrayList<CalculationGame>();
     
-    
-    // RAKENNA TÄNNE TIETOKANNAN LUONTIIN METODI
-    // https://www.sqlitetutorial.net/sqlite-java/create-database/
-    // https://tikape-k20.mooc.fi/sqlite-java
-    
     public boolean databaseExists() {
         File file = new File("db/mentalcalculator.db");
         if (file.exists()) {
@@ -58,7 +53,8 @@ public class DBCalculationGameDAO implements
       
     
     public void createScoreTable() throws SQLException {
-        Connection db = DriverManager.getConnection("jdbc:sqlite:db/mentalcalculator.db");
+        Connection db = DriverManager.getConnection(
+                "jdbc:sqlite:db/mentalcalculator.db");
         Statement s = db.createStatement();
 
         s.execute(
@@ -72,25 +68,15 @@ public class DBCalculationGameDAO implements
             "totalAnswers INTEGER NOT NULL)");
 
         s.execute("INSERT INTO calculationgame ("
-                + "playerName, "
-                + "operationType, "
-                + "digits, points, "
-                + "rightAnswers, "
+                + "playerName, operationType, digits, points, rightAnswers, "
                 + "totalAnswers)"
-                
-                + "VALUES ("
-                + "'noob', "
-                + "'Addition', "
-                + "1, "
-                + "0, "
-                + "0, "
-                + "15)");
+                + "VALUES ('noob', 'Addition', 1, 0, 0, 15)");
     }
     
     public Connection getConnection() throws SQLException {
         
         Connection connection = DriverManager.getConnection(
-        "jdbc:sqlite:db/mentalcalculator.db");
+            "jdbc:sqlite:db/mentalcalculator.db");
         
         return connection;
     }
@@ -125,16 +111,16 @@ public class DBCalculationGameDAO implements
                 "SELECT * FROM calculationgame");
         ResultSet rs = stmt.executeQuery();
         
-            while(rs.next()){
-                CalculationGame game = new CalculationGame();
-                game.setPlayerName(rs.getString("playerName"));
-                game.setOperationType(rs.getString("operationType"));
-                game.setNumDigits(rs.getInt("digits"));
-                game.setPoints(rs.getInt("points"));
-                game.setRightAnswers(rs.getInt("rightAnswers"));
-                game.setTotalAnswers(rs.getInt("totalAnswers"));
-                this.games.add(game);
-            }
+        while (rs.next()) {
+            CalculationGame game = new CalculationGame();
+            game.setPlayerName(rs.getString("playerName"));
+            game.setOperationType(rs.getString("operationType"));
+            game.setNumDigits(rs.getInt("digits"));
+            game.setPoints(rs.getInt("points"));
+            game.setRightAnswers(rs.getInt("rightAnswers"));
+            game.setTotalAnswers(rs.getInt("totalAnswers"));
+            this.games.add(game);
+        }
         rs.close();
         connection.close();
         

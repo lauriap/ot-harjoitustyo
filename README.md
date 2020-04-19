@@ -23,7 +23,7 @@ Mental Calculation Game is a simple game for practicing mental calculation with 
 * **ALL CALCULATIONS NOW SUPPORTED, BUT ONLY WITH INTEGERS.** Division "works", but the results don't include decimals. E.g. 6 / 7 = 0, 5 / 2 = 2.
 * **Database for high scores now functioning, but with limitations.** Showing all results instead of ordered top 10. Rank numbers missing.
 * High score tab set up, but points system still not complete.
-* Test coverage needs to be increased (will be done next week).
+* Test coverage needs to be increased further, especially database and game classes (will be done next week).
 
 
 ## How to run
@@ -54,7 +54,7 @@ You can run the program using
 java -jar MentalCalculation-1.0-SNAPSHOT.jar
 ```
 
-in the terminal window while in the same folder as the .jar file. **OBS.** a 'db' folder is created to the folder from which you run execute the jar.
+in the terminal window while in the same folder as the .jar file. **OBS.** a 'db' folder is created to the folder from which you run execute the jar. Therefore it is advisable to copy the .jar file to a new folder first.
 
 ## Running tests
 

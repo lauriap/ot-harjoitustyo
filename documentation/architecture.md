@@ -22,3 +22,26 @@ The architecture of the program is based on the idea of separation. The two logi
 
 
 ![Menu](https://github.com/lauriap/ot-harjoitustyo/blob/master/documentation/database_tables.PNG?raw=true.png)
+
+
+## Sequence diagrams
+
+
+### Creating a game
+
+![Menu](https://github.com/lauriap/ot-harjoitustyo/blob/master/documentation/sequence_diagrams/create_game.PNG?raw=true.png)
+
+
+### Playing a round
+
+![Menu](https://github.com/lauriap/ot-harjoitustyo/blob/master/documentation/sequence_diagrams/play_round.PNG?raw=true.png)
+
+
+### Ending and saving a game
+
+![Menu](https://github.com/lauriap/ot-harjoitustyo/blob/master/documentation/sequence_diagrams/end_save_game.PNG?raw=true.png)
+
+
+### Checking high scores
+
+![Menu](https://github.com/lauriap/ot-harjoitustyo/blob/master/documentation/sequence_diagrams/high_scores.PNG?raw=true.png)
