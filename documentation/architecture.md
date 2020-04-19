@@ -34,14 +34,14 @@ The architecture of the program is based on the idea of separation. The two logi
 
 ### Playing a round
 
-![Menu](https://raw.githubusercontent.com/lauriap/ot-harjoitustyo/master/documentation/sequence_diagrams/play_round.PNG)
+![Menu](https://raw.githubusercontent.com/lauriap/ot-harjoitustyo/master/documentation/sequence_diagrams/play_round.png)
 
 
 ### Ending and saving a game
 
-![Menu](https://github.com/lauriap/ot-harjoitustyo/blob/master/documentation/sequence_diagrams/end_save_game.PNG)
+![Menu](https://raw.githubusercontent.com/lauriap/ot-harjoitustyo/master/documentation/sequence_diagrams/end_save_game.png)
 
 
 ### Checking high scores
 
-![Menu](https://raw.githubusercontent.com/lauriap/ot-harjoitustyo/master/documentation/sequence_diagrams/high_scores.PNG)
+![Menu](https://raw.githubusercontent.com/lauriap/ot-harjoitustyo/master/documentation/sequence_diagrams/high_scores.png)
