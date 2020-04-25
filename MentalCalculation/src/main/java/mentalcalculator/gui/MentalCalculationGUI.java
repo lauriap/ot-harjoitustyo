@@ -26,7 +26,10 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import mentalcalculator.dao.DBCalculationGameDAO;
 
-
+/**
+ * Creates a graphic user interface for the Mental Calculator application.
+ * @author lauri
+ */
 public class MentalCalculationGUI extends Application {
     
     CalculationGenerator calculationGenerator;
@@ -77,11 +80,18 @@ public class MentalCalculationGUI extends Application {
 
     Scene menuScene, gameSettings, gameScreen, highScoreScreen;
     
+    /**
+     * Sets the default size of a Button object used in the GUI.
+     * @param b Button object to be resized.
+     */
     public void setButtonSize(Button b) {
         b.setMinWidth(this.minWidth);
         b.setMinHeight(this.minHeight);
     }
     
+    /**
+     * Creates all the objects of the main menu scene.
+     */
     public void createMenuObjects() {
         
         newGameButton = new Button("New game");
@@ -101,6 +111,9 @@ public class MentalCalculationGUI extends Application {
         menuItems.setMargin(quitButton, new Insets(20, 10, 20, 10));
     }
     
+    /**
+     * Creates all the objects of the high score scene.
+     */
     public void createHighScoreObjects() {
         highScoreLabel = new Label("High Score");
         scoreMainMenuButton = new Button("Main Menu");
@@ -164,6 +177,9 @@ public class MentalCalculationGUI extends Application {
         highScoreScreenItems.setPadding(new Insets(10, 0, 0, 10));
     }
     
+    /**
+     * Creates all the objects of the game settings scene.
+     */
     public void createSettingsObjects() {
         
         nameLabel = new Label("Player name");
@@ -217,6 +233,9 @@ public class MentalCalculationGUI extends Application {
         
     }
     
+    /**
+     * Creates all the objects of the game scene.
+     */
     public void createGameScreenObjects() {
         calculationLabel = new Label("x + y = ?");
         answerField = new TextField();
@@ -238,6 +257,9 @@ public class MentalCalculationGUI extends Application {
         gameScreenItems.setMargin(exitGameButton, new Insets(5, 10, 5, 10));
     }
     
+    /**
+     * Creates the scene objects of the GUI.
+     */
     public void createScenes() {
         
         menuScene = new Scene(menuItems, 500, 300);
@@ -246,6 +268,9 @@ public class MentalCalculationGUI extends Application {
         highScoreScreen = new Scene(highScoreScreenItems, 700, 700);
     }
     
+    /**
+     * Functionality for pressing the New Game button in the main menu.
+     */
     public void startNewGame() {
         // create new CalculationGenerator Object
         String playerName = nameField.getText();
@@ -264,6 +289,9 @@ public class MentalCalculationGUI extends Application {
             
     }
     
+    /**
+     * Functionality for pressing the Submit button in the game scene.
+     */
     public void submitAnswer() {
         // check if answer is correct and update the number of correct ans
         boolean ans = calculationGenerator.checkAnswer(
@@ -293,6 +321,11 @@ public class MentalCalculationGUI extends Application {
         return obsList;
     }
     
+    /**
+     * Method for launching the GUI. Also contains short button actions.
+     * @param stage Stage object used in the GUI.
+     * @throws Exception 
+     */
     @Override
     public void start(Stage stage) throws Exception {
         
@@ -372,6 +405,10 @@ public class MentalCalculationGUI extends Application {
         stage.show();
     }
     
+    /**
+     * Main class for starting the program.
+     * @param args 
+     */
     public static void main(String[] args) {
         launch(args);
     }

@@ -18,5 +18,6 @@
 | 14.04. | 2        | Code for database creation, mvn package setup |
 | 17.04. | 1        | Drawing sequence diagrams |
 | 19.04. | 1        | Checkstyle + documentation updates, creating a release |
-| TOTAL  | 53.5     | | 
+| 25.04. | 6        | JavaDoc, point system implementation, improving test coverage, architecture description, new release, user manual |
+| TOTAL  | 59.5     | | 
 

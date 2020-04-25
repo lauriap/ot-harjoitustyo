@@ -24,18 +24,24 @@ public class CalculationGameTest {
     }
     
     /**
-     * Tests that the playerName is returned correctly
+     * Tests that the playerName is returned correctly.
      */
     @Test 
     public void playerNameIsCorrect() {
         assertEquals(calcGame.getPlayerName(), "testname");
     }
     
+    /**
+     * Tests that the number of digits is returned correctly.
+     */
     @Test
     public void getNumDigitsReturnsCorrectInteger() {
         assertEquals(calcGame.getNumDigits(), 2);
     }
     
+    /**
+     * Checks that the updateAnswers() method works correctly.
+     */
     @Test
     public void updateAnswersUpdatesCorrectly() {
         assertEquals(calcGame.updateAnswers(true), 
@@ -45,5 +51,16 @@ public class CalculationGameTest {
         
     }
     
+    /**
+     * Checks that the point system works correctly based on the number of 
+     * digits used.
+     */
+    @Test
+    public void increasePointsWorksCorrectly() {
+        calcGame.setPoints(0);
+        calcGame.setNumDigits(3);
+        calcGame.increasePoints();
+        assertEquals(calcGame.getPoints(), 300);
+    }
     
 }

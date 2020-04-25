@@ -20,10 +20,10 @@ Mental Calculation Game is a simple game for practicing mental calculation with 
 
 ## Known issues
 
-* **ALL CALCULATIONS NOW SUPPORTED, BUT ONLY WITH INTEGERS.** Division "works", but the results don't include decimals. E.g. 6 / 7 = 0, 5 / 2 = 2.
-* **Database for high scores now functioning, but with limitations.** Showing all results instead of ordered top 10. Rank numbers missing.
-* High score tab set up, but points system still not complete.
+* ALL CALCULATIONS NOW SUPPORTED, BUT ONLY WITH INTEGERS. Division "works", but the results don't include decimals. E.g. 6 / 7 = 0, 5 / 2 = 2.
+* Database for high scores now functioning, but with limitations. Showing all results instead of ordered top 10. Rank numbers missing.
 * Test coverage needs to be increased further, especially database and game classes (will be done next week).
+* JavaDoc mostly done, but needs some additional work.
 
 
 ## How to run

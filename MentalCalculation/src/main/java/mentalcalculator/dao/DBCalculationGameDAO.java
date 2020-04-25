@@ -14,7 +14,7 @@ import java.util.List;
 import mentalcalculator.game.CalculationGame;
 
 /**
- *
+ * Database class for accessing stored CalculationGame data.
  * @author lauri
  */
 public class DBCalculationGameDAO implements 
@@ -22,6 +22,10 @@ public class DBCalculationGameDAO implements
     
     private List<CalculationGame> games = new ArrayList<CalculationGame>();
     
+    /**
+     * Checks whether the database has been created already. Creates /db/ folder if database doesn't exist yet.
+     * @return True if database exists, false if it doesn't.
+     */
     public boolean databaseExists() {
         File file = new File("db/mentalcalculator.db");
         if (file.exists()) {
@@ -34,6 +38,9 @@ public class DBCalculationGameDAO implements
         }
     }
     
+    /**
+     * Creates a database file mentalcalculator.db to /db/ folder.
+     */
     public void createDataBase() {
             
         String url = "jdbc:sqlite:db/mentalcalculator.db";
@@ -51,7 +58,10 @@ public class DBCalculationGameDAO implements
     }
         
       
-    
+    /**
+     * Creates a high score table to the database.
+     * @throws SQLException 
+     */
     public void createScoreTable() throws SQLException {
         Connection db = DriverManager.getConnection(
                 "jdbc:sqlite:db/mentalcalculator.db");
@@ -73,6 +83,11 @@ public class DBCalculationGameDAO implements
                 + "VALUES ('noob', 'Addition', 1, 0, 0, 15)");
     }
     
+    /**
+     * Returns the database connection.
+     * @return Database connection of Connection object type.
+     * @throws SQLException 
+     */
     public Connection getConnection() throws SQLException {
         
         Connection connection = DriverManager.getConnection(
@@ -81,6 +96,12 @@ public class DBCalculationGameDAO implements
         return connection;
     }
     
+    /**
+     * Adds a calculation game to the database.
+     * @param game CalculationGame object which contains the information
+     * to be stored.
+     * @throws SQLException 
+     */
     @Override
     public void addGame(CalculationGame game) throws SQLException {
         
@@ -102,6 +123,10 @@ public class DBCalculationGameDAO implements
         connection.close();
     }
     
+    /**
+     * Updates the List<CalculationGame> games field with the latest data.
+     * @throws SQLException 
+     */
     @Override
     public void updateGameList() throws SQLException {
         
@@ -126,6 +151,11 @@ public class DBCalculationGameDAO implements
         
     }
     
+    /**
+     * Returns the List<CalculationGame> games field.
+     * @return List of CalculationGame objects stored.
+     */
+    @Override
     public List<CalculationGame> getGameList() {
         return this.games;
     }

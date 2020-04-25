@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * Tests that the CalculationGenerator class works correctly.
  * @author lauri
  */
 public class CalculationGeneratorTest {
@@ -21,18 +21,26 @@ public class CalculationGeneratorTest {
         randCalcGen = new CalculationGenerator("Addition", 5);
     }
     
+    /**
+     * Tests that the constructor works correctly.
+     */
     @Test
     public void calcGenExists() {
         assertTrue(calcGen!=null); 
     }
     
+    /**
+     * Tests that upper limit for calculations is set correctly.
+     */
     @Test
     public void setUpperLimitIsCorrect() {
         calcGen.setUpperLimit();
         assertEquals(calcGen.getUpperLimit(), 900);
     }
     
-    
+    /**
+     * Tests that getRightAnswer() returns the right values.
+     */
     @Test
     public void getRightAnswersReturnsRightAnswer() {
         int[] answers = new int[]{14640, 1, 0, 180544, 1394, 6, 213968, 
@@ -57,6 +65,10 @@ public class CalculationGeneratorTest {
         
     }
     
+    /**
+     * Tests the checkAnswers returns correct boolean values based on user 
+     * input.
+     */
     @Test
     public void checkAnswersWorksCorrectly() {
         

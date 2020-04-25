@@ -1,4 +1,4 @@
-# Mental calculation game - specification
+# Mental Calculation Game - Specification
 
 ## Purpose and scope
 
@@ -65,12 +65,11 @@ The program allows the user to select a name in the beginning of the practice se
 
 **High score screen**
 
-* The user sees a list of the players with highest scores based on the amount of points they have earned. **DONE, BUT RANKS NOT SHOWING YET**
-* The point system works as follows: **POINT SYSTEM NOT IMPLEMENTED YET**
-	* x points for each correct answer where x is the number of digits in the problem
-	* -1 point for each wrong answer
-* The number and percentage of correct answers is also tracked, e.g. 51/1097, 4.64 %
+* The user sees a list of the players with highest scores based on the amount of points they have earned. 
+* The point system works as follows: 
+	* (100 points * d) for each correct answer where d is the number of digits in the problem
 
+**DONE**
 
 ## Ideas for further development
 

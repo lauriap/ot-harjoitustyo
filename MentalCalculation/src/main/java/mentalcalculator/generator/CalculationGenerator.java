@@ -3,16 +3,23 @@ package mentalcalculator.generator;
 import java.util.Random;
 
 /**
- *
+ * Class for generating new calculation exercises and checking correctness of
+ * user input.
  * @author lauri
  */
 public class CalculationGenerator {
     
     String playerName, operationType, nextOperationType;
-    int rightAnswers, totalAnswers, numDigits, firstNum, secondNum, upperLimit;
+    int numDigits, firstNum, secondNum, upperLimit;
     Random rand;
     // point system still missing
     
+    /**
+     * Constructor the uses user input to define the operation type(s) and 
+     * the number of digits used in the calculations.
+     * @param operationType Selected operation type, e.g. Subtraction.
+     * @param digits Number of digits that the player wants, between 1-5.
+     */
     public CalculationGenerator(String operationType, int digits) {
         this.operationType = operationType;
         this.nextOperationType = this.operationType; //used when "All" selected
@@ -22,7 +29,8 @@ public class CalculationGenerator {
     }
     
     /**
-     * This constructor is used for testing purposes only. Has a set seed option
+     * This constructor is used for testing purposes only. Has a set seed 
+     * option.
      * @param operationType operation type
      * @param digits number of digits for calculations
      * @param seed seed value for Random 
@@ -37,8 +45,8 @@ public class CalculationGenerator {
     
     /**
      * Sets the upper limit for random values based on the number of digits.
-     * I.e. With 9 digit, the upper limit is 9. With two, it is 90.
-     * With 3, 900. Additional random number with ones less digit is added
+     * E.g. With 1 digit, the upper limit is 9. With two, it is 90.
+     * With 3, 900. Additional random number with one less digit is added
      * to get a randomized value with the correct amount of digits, 
      * i.e. 900 + 87 = 987.
      */
@@ -56,7 +64,7 @@ public class CalculationGenerator {
     
     /**
      * Returns the operation type, eg "Addition". 
-     * If "All" is selected, returns one at random.
+     * If "All" is selected, returns one operation type at random.
      */
     public void setNextOperationType() {
         // get a random operationType if type is "All"
@@ -74,6 +82,10 @@ public class CalculationGenerator {
         } 
     }
     
+    /**
+     * Creates a new calculation in String format and returns it.
+     * @return A newly generated calculation in String format, e.g. "5 + 5 = ?"
+     */
     public String getCalculation() {
         this.setNextOperationType();
         this.firstNum = rand.nextInt(this.upperLimit) + 
@@ -95,6 +107,10 @@ public class CalculationGenerator {
         return (this.firstNum + " / " + this.secondNum + " = ?");
     }
     
+    /**
+     * Returns the correct answer to the current calculation as an integer.
+     * @return Correct answer as an integer.
+     */
     public int getRightAnswer() {
         if (null != this.nextOperationType) {
             switch (this.nextOperationType) {
@@ -110,6 +126,11 @@ public class CalculationGenerator {
         return (this.firstNum / this.secondNum);
     }
     
+    /**
+     * Checks whether the answer inputted by the user is correct.
+     * @param a User input in String format.
+     * @return Boolean value, true = user answer is correct.
+     */
     public boolean checkAnswer(String a) {
         int rightAnswer = this.getRightAnswer();
         try {

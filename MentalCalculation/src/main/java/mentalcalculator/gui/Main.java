@@ -11,7 +11,8 @@ import mentalcalculator.dao.DBCalculationGameDAO;
 
 
 /**
- *
+ * Main class that creates a database if not already created and launches the
+ * GUI.
  * @author lauri
  */
 public class Main {
