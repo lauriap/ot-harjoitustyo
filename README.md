@@ -78,7 +78,13 @@ mvn test jacoco:report
 mvn jxr:jxr checkstyle:checkstyle
 ```
 
+## Creating JavaDoc
 
+JavaDoc for the application classes can be created using the following command in the /ot-harjoitustyo/MentalCalculation/ folder:
+
+```
+mvn javadoc:javadoc
+```
 
 
 
