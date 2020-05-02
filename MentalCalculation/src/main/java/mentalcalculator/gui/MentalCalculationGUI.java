@@ -12,7 +12,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -68,7 +67,6 @@ public class MentalCalculationGUI extends Application {
     Label highScoreLabel;
     Button scoreMainMenuButton;
     TableView<CalculationGame> scoreTable;
-    TableColumn rankCol;
     TableColumn nameCol, operationCol;
     TableColumn correctAnswersCol, totalAnswersCol, pointsCol;
     VBox highScoreScreenItems;
@@ -122,7 +120,6 @@ public class MentalCalculationGUI extends Application {
         scoreTable = new TableView<>();
         scoreTable.setEditable(true);
         
-        rankCol = new TableColumn("Rank");
         
         nameCol = new TableColumn("Player name");
         nameCol.setCellValueFactory(
@@ -132,11 +129,11 @@ public class MentalCalculationGUI extends Application {
         operationCol.setCellValueFactory(
                 new PropertyValueFactory<>("operationType"));
         
-        correctAnswersCol = new TableColumn("Correct answers"); // CHANGE TO INTEGER x/y
+        correctAnswersCol = new TableColumn("Correct answers");
         correctAnswersCol.setCellValueFactory(
                 new PropertyValueFactory<>("rightAnswers"));
         
-        totalAnswersCol = new TableColumn("Total answers"); //NOW TOTAL ANSWERS, CHANGE TO numDigits
+        totalAnswersCol = new TableColumn("Total answers");
         totalAnswersCol.setCellValueFactory(
                 new PropertyValueFactory<>("totalAnswers"));
         
@@ -153,21 +150,19 @@ public class MentalCalculationGUI extends Application {
         gameData = this.getScores(gameDAO.getGameList());
         scoreTable.setItems(gameData);
 
-        scoreTable.getColumns().addAll(rankCol, nameCol, operationCol, 
+        scoreTable.getColumns().addAll(nameCol, operationCol, 
                 correctAnswersCol, totalAnswersCol, pointsCol);
         
-        rankCol.prefWidthProperty().bind(scoreTable.
-                widthProperty().multiply(0.10));
         operationCol.prefWidthProperty().bind(scoreTable.
                 widthProperty().multiply(0.20));
         nameCol.prefWidthProperty().bind(scoreTable.
-                widthProperty().multiply(0.15));
+                widthProperty().multiply(0.20));
         correctAnswersCol.prefWidthProperty().bind(scoreTable.
                 widthProperty().multiply(0.20));
         totalAnswersCol.prefWidthProperty().bind(scoreTable.
                 widthProperty().multiply(0.25));
         pointsCol.prefWidthProperty().bind(scoreTable.
-                widthProperty().multiply(0.10));
+                widthProperty().multiply(0.15));
         
         highScoreScreenItems = new VBox(scoreTable, scoreMainMenuButton);
         highScoreScreenItems.setMargin(scoreTable, new Insets(0, 10, 20, 10));

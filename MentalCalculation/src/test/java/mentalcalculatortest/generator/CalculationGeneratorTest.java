@@ -38,30 +38,28 @@ public class CalculationGeneratorTest {
         assertEquals(calcGen.getUpperLimit(), 900);
     }
     
+    
     /**
      * Tests that getRightAnswer() returns the right values.
      */
     @Test
     public void getRightAnswersReturnsRightAnswer() {
-        int[] answers = new int[]{14640, 1, 0, 180544, 1394, 6, 213968, 
-        1, 381, 541, 1103, 548, 144150, 187480, 299406, 0};
-        
-        for(int i = 0; i < 16; i++) {
-            calcGen.getCalculation();
-            assertEquals(calcGen.getRightAnswer(), answers[i]);
-        }
-        
-        String[] StringAnswers = new String[]{"asd", "asd", "asd", "asd", "asd", 
-            "asd", "asd", "asd", "asd", "asd"};
-        
-        for(int i = 0; i < 10; i++) {
-            calcGen.getCalculation();
-            assertNotEquals(calcGen.getRightAnswer(), StringAnswers[i]);
-        }
-        
-        randCalcGen.getCalculation();
-        randCalcGen.getRightAnswer();
-        assertEquals(randCalcGen.getNextOperationType(), "Addition");
+        calcGen = new CalculationGenerator("Addition", 1);
+        calcGen.setFirstNum(1);
+        calcGen.setSecondNum(1);
+        assertEquals(calcGen.getRightAnswer(), 2, 0.01);
+        calcGen = new CalculationGenerator("Subtraction", 1);
+        calcGen.setFirstNum(1);
+        calcGen.setSecondNum(1);
+        assertEquals(calcGen.getRightAnswer(), 0, 0.01);
+        calcGen = new CalculationGenerator("Multiplication", 1);
+        calcGen.setFirstNum(1);
+        calcGen.setSecondNum(2);
+        assertEquals(calcGen.getRightAnswer(), 2, 0.01);
+        calcGen = new CalculationGenerator("Division", 1);
+        calcGen.setFirstNum(6);
+        calcGen.setSecondNum(7);
+        assertEquals(calcGen.getRightAnswer(), 0.86, 0.01);
         
     }
     
@@ -74,7 +72,7 @@ public class CalculationGeneratorTest {
         
         for(int i = 0; i < 50; i++) {
             calcGen.getCalculation();
-            String ans = Integer.toString(calcGen.getRightAnswer());
+            String ans = Double.toString(calcGen.getRightAnswer());
             assertEquals(true, calcGen.checkAnswer(ans));
         }
         

@@ -18,12 +18,19 @@ Mental Calculation Game is a simple game for practicing mental calculation with 
 [Work time tracker](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation/work_time_tracker.md)
 
 
+## Release links
+
+**FINAL RELEASE TBA**
+
+[Week 6 release, v. 0.95](https://github.com/lauriap/ot-harjoitustyo/releases/tag/0.95)
+
+[Week 5 release, v. 0.9](https://github.com/lauriap/ot-harjoitustyo/releases/tag/0.9)
+
+
+
 ## Known issues
 
-* ALL CALCULATIONS NOW SUPPORTED, BUT ONLY WITH INTEGERS. Division "works", but the results don't include decimals. E.g. 6 / 7 = 0, 5 / 2 = 2.
-* Database for high scores now functioning, but with limitations. Showing all results instead of ordered top 10. Rank numbers missing.
-* Test coverage needs to be increased further, especially database and game classes (will be done next week).
-* JavaDoc mostly done, but needs some additional work.
+* Division calculation now also work, but is designed to accept answers with **two decimals** only. I.e. 5 / 6 = 0.83 is correct, 0.833 is not. Also, . needs to be used as the decimal separator instead of , character. 
 
 
 ## How to run

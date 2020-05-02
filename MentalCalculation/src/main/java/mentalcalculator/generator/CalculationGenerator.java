@@ -1,6 +1,7 @@
 package mentalcalculator.generator;
 
 import java.util.Random;
+import org.decimal4j.util.DoubleRounder;
 
 /**
  * Class for generating new calculation exercises and checking correctness of
@@ -12,7 +13,6 @@ public class CalculationGenerator {
     String playerName, operationType, nextOperationType;
     int numDigits, firstNum, secondNum, upperLimit;
     Random rand;
-    // point system still missing
     
     /**
      * Constructor the uses user input to define the operation type(s) and 
@@ -60,6 +60,22 @@ public class CalculationGenerator {
     
     public String getNextOperationType() {
         return this.nextOperationType;
+    }
+    
+    public void setFirstNum(int f) {
+        this.firstNum = f;
+    }
+    
+    public int getFirstNum() {
+        return this.firstNum;
+    }
+    
+    public void setSecondNum(int s) {
+        this.secondNum = s;
+    }
+    
+    public int getSecondNum() {
+        return this.secondNum;
     }
     
     /**
@@ -111,7 +127,7 @@ public class CalculationGenerator {
      * Returns the correct answer to the current calculation as an integer.
      * @return Correct answer as an integer.
      */
-    public int getRightAnswer() {
+    public double getRightAnswer() {
         if (null != this.nextOperationType) {
             switch (this.nextOperationType) {
                 case "Addition":
@@ -122,8 +138,8 @@ public class CalculationGenerator {
                     return (this.firstNum * this.secondNum);
             }
         }
-
-        return (this.firstNum / this.secondNum);
+        double div = ((double) this.firstNum / (double) this.secondNum);
+        return DoubleRounder.round(div, 2);
     }
     
     /**
@@ -132,9 +148,9 @@ public class CalculationGenerator {
      * @return Boolean value, true = user answer is correct.
      */
     public boolean checkAnswer(String a) {
-        int rightAnswer = this.getRightAnswer();
+        double rightAnswer = this.getRightAnswer();
         try {
-            int userAnswer = Integer.parseInt(a);
+            double userAnswer = Double.parseDouble(a);
             if (userAnswer == rightAnswer) {  
                 return true;
             }

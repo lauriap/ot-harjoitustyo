@@ -133,7 +133,9 @@ public class DBCalculationGameDAO implements
         Connection connection = this.getConnection();
         
         PreparedStatement stmt = connection.prepareStatement(
-                "SELECT * FROM calculationgame");
+                "SELECT * FROM calculationgame "
+                        + "ORDER BY points "
+                        + "DESC LIMIT 10");
         ResultSet rs = stmt.executeQuery();
         
         while (rs.next()) {
