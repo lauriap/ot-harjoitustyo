@@ -11,6 +11,8 @@ Mental Calculation Game is a simple game for practicing mental calculation with 
 
 [Documentation folder](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation)
 
+[User manual](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation/user_manual.md)
+
 [Specification](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation/specification.md)
 
 [Architecture](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation/architecture.md)
@@ -20,7 +22,7 @@ Mental Calculation Game is a simple game for practicing mental calculation with 
 
 ## Release links
 
-**FINAL RELEASE TBA**
+[Full release, v. 1.0](https://github.com/lauriap/ot-harjoitustyo/releases/tag/1.0)
 
 [Week 6 release, v. 0.95](https://github.com/lauriap/ot-harjoitustyo/releases/tag/0.95)
 

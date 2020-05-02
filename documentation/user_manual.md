@@ -8,10 +8,10 @@ Download the latest [release](https://github.com/lauriap/ot-harjoitustyo/release
 Save the .jar file to a folder. Navigate to the folder in the terminal and type 
 
 ```
-java -jar MentalCalculation_week6.jar
+java -jar MentalCalculation_final.jar
 ```
 
-**Note:** The filename might be different if you are using a different release than the one from week 5.
+**Note:** The filename might be different if you are using an earlier release than the final 1.0 version.
 
 
 ## Running the program from the terminal
