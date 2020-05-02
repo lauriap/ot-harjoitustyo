@@ -63,7 +63,7 @@ You can run the program using
 java -jar MentalCalculation-1.0-SNAPSHOT.jar
 ```
 
-in the terminal window while in the same folder as the .jar file. **OBS.** a 'db' folder is created to the folder from which you run execute the jar. Therefore it is advisable to copy the .jar file to a new folder first.
+in the terminal window while in the same folder as the .jar file. **OBS.** a 'db' folder is created to the folder from which you execute the jar. Therefore it is advisable to copy the .jar file to a new folder first.
 
 ## Running tests
 
