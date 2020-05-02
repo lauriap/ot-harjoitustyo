@@ -30,7 +30,7 @@ Mental Calculation Game is a simple game for practicing mental calculation with 
 
 ## Known issues
 
-* Division calculation now also work, but is designed to accept answers with **two decimals** only. I.e. 5 / 6 = 0.83 is correct, 0.833 is not. Also, . needs to be used as the decimal separator instead of , character. 
+* Division calculation now also works, but is designed to accept answers with **two decimals** only. I.e. 5 / 6 = 0.83 is correct, 0.833 is not. Also, "." character needs to be used as the decimal separator instead of ",". 
 
 
 ## How to run

@@ -140,6 +140,7 @@ public class MentalCalculationGUI extends Application {
         pointsCol = new TableColumn("Points");
         pointsCol.setCellValueFactory(
                 new PropertyValueFactory<>("points"));
+        pointsCol.setSortType(TableColumn.SortType.DESCENDING);
         
         try {
            gameDAO.updateGameList();
@@ -147,11 +148,12 @@ public class MentalCalculationGUI extends Application {
             System.out.println(sqlException.getMessage());
         }
         
-        gameData = this.getScores(gameDAO.getGameList());
+        gameData = this.getObservableGameList(gameDAO.getGameList());
         scoreTable.setItems(gameData);
 
         scoreTable.getColumns().addAll(nameCol, operationCol, 
                 correctAnswersCol, totalAnswersCol, pointsCol);
+        scoreTable.getSortOrder().addAll(pointsCol);
         
         operationCol.prefWidthProperty().bind(scoreTable.
                 widthProperty().multiply(0.20));
@@ -304,7 +306,13 @@ public class MentalCalculationGUI extends Application {
         answerField.requestFocus();
     }
     
-    public ObservableList<CalculationGame> getScores(
+    /**
+     * Turns List<CalculationGame> elements into an ObservableList for use in
+     * TableView.
+     * @param gameList List of all CalculationGame objects from the database
+     * @return 
+     */
+    public ObservableList<CalculationGame> getObservableGameList(
             List<CalculationGame> gameList) {
         
         ObservableList<CalculationGame> obsList = 
@@ -346,6 +354,7 @@ public class MentalCalculationGUI extends Application {
         
         highScoreButton.setOnAction(e -> {
             //make screen visible
+            scoreTable.sort();
             stage.setScene(highScoreScreen);
         });
         
