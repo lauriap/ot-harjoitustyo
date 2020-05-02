@@ -9,7 +9,7 @@ Mental Calculation Game is a simple game for practicing mental calculation with 
 
 ## Mental calculation game - project links
 
-[Documentation](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation)
+[Documentation folder](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation)
 
 [Specification](https://github.com/lauriap/ot-harjoitustyo/tree/master/documentation/specification.md)
 
@@ -72,6 +72,7 @@ All the commands are done in the terminal while in the following folder: /ot-har
 ```
 mvn test
 ```
+
 
 * Creating a jacoco test report:
 

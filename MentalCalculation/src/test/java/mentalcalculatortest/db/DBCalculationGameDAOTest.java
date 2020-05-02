@@ -42,9 +42,9 @@ public class DBCalculationGameDAOTest {
         this.testGameList = new ArrayList<CalculationGame>();
         
         this.game = new CalculationGame("testname", "Addition", 1);
-        this.game.setPoints(500);
-        this.game.setRightAnswers(5);
-        this.game.setTotalAnswers(6);
+        this.game.setPoints(900000);
+        this.game.setRightAnswers(9000);
+        this.game.setTotalAnswers(9001);
     }
     
     /**

@@ -20,5 +20,6 @@
 | 19.04. | 1        | Checkstyle + documentation updates, creating a release |
 | 25.04. | 6        | JavaDoc, point system implementation, improving test coverage, architecture description, new release, user manual |
 | 02.05. | 3        | Test coverage, division correction |
-| TOTAL  | 62.5     | | 
+| 02.05. | 2        | High score sorting, documentation + final release |
+| TOTAL  | 64.5     | | 
 
