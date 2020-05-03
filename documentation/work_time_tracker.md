@@ -21,5 +21,6 @@
 | 25.04. | 6        | JavaDoc, point system implementation, improving test coverage, architecture description, new release, user manual |
 | 02.05. | 3        | Test coverage, division correction |
 | 02.05. | 2        | High score sorting, documentation + final release |
-| TOTAL  | 64.5     | | 
+| 03.05. | 2        | Documentation updates (testing document, user manual) |
+| TOTAL  | 66.5     | | 
 
